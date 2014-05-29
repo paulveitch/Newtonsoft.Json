@@ -233,6 +233,16 @@ namespace Newtonsoft.Json.Schema
         /// <value>The format.</value>
         public string Format { get; set; }
 
+        /// <summary>
+        /// Gets or sets the List of Links
+        /// </summary>
+        public IList<Link> Links { get; set; }
+
+        /// <summary>
+        /// Gets or sets the Media attribute
+        /// </summary>
+        public Media Media { get; set; }
+
         internal string Location { get; set; }
 
         private readonly string _internalId = Guid.NewGuid().ToString("N");
