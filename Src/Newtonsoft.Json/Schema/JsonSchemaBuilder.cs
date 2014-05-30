@@ -255,8 +255,8 @@ namespace Newtonsoft.Json.Schema
                     case JsonSchemaConstants.RequiredPropertyName:
                         CurrentSchema.Required = (bool)property.Value;
                         break;
-                    case JsonSchemaConstants.RequiresPropertyName:
-                        CurrentSchema.Requires = (string)property.Value;
+                    case JsonSchemaConstants.DependenciesPropertyName:
+                        CurrentSchema.Dependencies = (string)property.Value;
                         break;
                     case JsonSchemaConstants.MinimumPropertyName:
                         CurrentSchema.Minimum = (double)property.Value;

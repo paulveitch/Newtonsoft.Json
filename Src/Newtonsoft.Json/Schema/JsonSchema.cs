@@ -48,7 +48,7 @@ namespace Newtonsoft.Json.Schema
         public string Title { get; set; }
 
         /// <summary>
-        /// Gets or sets whether the object is required.
+        /// Gets or sets an array of required attributes.
         /// </summary>
         public bool? Required { get; set; }
 
@@ -198,10 +198,10 @@ namespace Newtonsoft.Json.Schema
         public bool AllowAdditionalProperties { get; set; }
 
         /// <summary>
-        /// Gets or sets the required property if this property is present.
+        /// Gets or sets the dependencies property if this property is present.
         /// </summary>
-        /// <value>The required property if this property is present.</value>
-        public string Requires { get; set; }
+        /// <value>The dependencies property if this property is present.</value>
+        public string Dependencies { get; set; }
 
         /// <summary>
         /// Gets or sets the a collection of valid enum values allowed.

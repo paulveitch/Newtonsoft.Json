@@ -243,15 +243,15 @@ namespace Newtonsoft.Json.Tests.Schema
         public void Requires()
         {
             string json = @"{
-  ""description"":""Requires"",
+  ""description"":""Dependencies"",
   ""requires"":""PurpleMonkeyDishwasher""
 }";
 
             JsonSchemaBuilder builder = new JsonSchemaBuilder(new JsonSchemaResolver());
             JsonSchema schema = builder.Read(new JsonTextReader(new StringReader(json)));
 
-            Assert.AreEqual("Requires", schema.Description);
-            Assert.AreEqual("PurpleMonkeyDishwasher", schema.Requires);
+            Assert.AreEqual("Dependencies", schema.Description);
+            Assert.AreEqual("PurpleMonkeyDishwasher", schema.Dependencies);
         }
 
         [Test]
