@@ -85,6 +85,7 @@ namespace Newtonsoft.Json.Schema
         private JsonSchemaResolver _resolver;
         private readonly IList<TypeSchema> _stack = new List<TypeSchema>();
         private JsonSchema _currentSchema;
+        private static readonly JsonSchemaType _nullableType = JsonSchemaType.Nullable;
 
         private JsonSchema CurrentSchema
         {
@@ -399,6 +400,9 @@ namespace Newtonsoft.Json.Schema
         {
             // default value is Any
             if (value == null)
+                return true;
+
+            if (flag == JsonSchemaType.Null && _nullableType.HasFlag(value))
                 return true;
 
             bool match = ((value & flag) == flag);

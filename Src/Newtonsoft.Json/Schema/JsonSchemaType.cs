@@ -76,6 +76,11 @@ namespace Newtonsoft.Json.Schema
         /// <summary>
         /// Any type.
         /// </summary>
-        Any = String | Float | Integer | Boolean | Object | Array | Null
+        Any = String | Float | Integer | Boolean | Object | Array | Null,
+
+        /// <summary>
+        /// Specfies which types are Nullable
+        /// </summary>
+        Nullable = String | Float | Integer | Boolean,
     }
 }
