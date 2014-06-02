@@ -54,8 +54,8 @@ namespace Newtonsoft.Json.Schema
         public bool UniqueItems { get; set; }
         public IList<JToken> Enum { get; set; }
         public JsonSchemaType Disallow { get; set; }
-        public IList<Link> Links { get; set; }
-        public Media Media { get; set; }
+        public IList<JsonSchemaLink> Links { get; set; }
+        public JsonSchemaMedia Media { get; set; }
 
         public JsonSchemaModel()
         {
@@ -120,9 +120,9 @@ namespace Newtonsoft.Json.Schema
             if (schema.Links != null)
             {
                 if (model.Links == null)
-                    model.Links = new List<Link>();
+                    model.Links = new List<JsonSchemaLink>();
 
-                model.Links.AddRangeDistinct(schema.Links, Link.LinkComparer);
+                model.Links.AddRangeDistinct(schema.Links, JsonSchemaLink.LinkComparer);
             }
 
             //Overwrite the Model Media property if the Schema Media property is valid

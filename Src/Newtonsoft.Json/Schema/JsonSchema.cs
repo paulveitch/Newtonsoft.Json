@@ -236,12 +236,12 @@ namespace Newtonsoft.Json.Schema
         /// <summary>
         /// Gets or sets the List of Links
         /// </summary>
-        public IList<Link> Links { get; set; }
+        public IList<JsonSchemaLink> Links { get; set; }
 
         /// <summary>
         /// Gets or sets the Media attribute
         /// </summary>
-        public Media Media { get; set; }
+        public JsonSchemaMedia Media { get; set; }
 
         internal string Location { get; set; }
 

@@ -5,14 +5,14 @@ using Newtonsoft.Json.Linq;
 namespace Newtonsoft.Json.Schema
 {
     /// <summary>
-    /// In Memory representation of a JSON Schema Link
+    /// In Memory representation of a JSON Schema JsonSchemaLink
     /// </summary>
-    public class Link : IEquatable<Link>
+    public class JsonSchemaLink : IEquatable<JsonSchemaLink>
     {
         /// <summary>
-        /// Creates a new <seealso cref="Link"/>
+        /// Creates a new <seealso cref="JsonSchemaLink"/>
         /// </summary>
-        public Link()
+        public JsonSchemaLink()
         {
             MediaType = JsonSchemaConstants.JsonMediaType;
         }
@@ -53,7 +53,7 @@ namespace Newtonsoft.Json.Schema
         public JsonSchema Schema { get; set; }
 
         /// <summary>
-        /// Determines whether the specified <see cref="T:Newtonsoft.Json.Schema.Link"/> is equal to the current <see cref="T:Newtonsoft.Json.Schema.Link"/>.
+        /// Determines whether the specified <see cref="T:Newtonsoft.Json.Schema.JsonSchemaLink"/> is equal to the current <see cref="T:Newtonsoft.Json.Schema.JsonSchemaLink"/>.
         /// </summary>
         /// <returns>
         /// true if the specified object  is equal to the current object; otherwise, false.
@@ -64,14 +64,14 @@ namespace Newtonsoft.Json.Schema
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
             if (obj.GetType() != GetType()) return false;
-            return Equals((Link) obj);
+            return Equals((JsonSchemaLink) obj);
         }
 
         /// <summary>
         /// Serves as a hash function for a particular type. 
         /// </summary>
         /// <returns>
-        /// A hash code for the current <see cref="T:Newtonsoft.Json.Schema.Link"/>.
+        /// A hash code for the current <see cref="T:Newtonsoft.Json.Schema.JsonSchemaLink"/>.
         /// </returns>
         /// <filterpriority>2</filterpriority>
         public override int GetHashCode()
@@ -92,10 +92,10 @@ namespace Newtonsoft.Json.Schema
         /// <summary>
         /// Checks if two Links are equal
         /// </summary>
-        /// <param name="left">The first Link to check</param>
-        /// <param name="right">The second Link to check</param>
+        /// <param name="left">The first JsonSchemaLink to check</param>
+        /// <param name="right">The second JsonSchemaLink to check</param>
         /// <returns>True if the Links are equal, false otherwise</returns>
-        public static bool operator ==(Link left, Link right)
+        public static bool operator ==(JsonSchemaLink left, JsonSchemaLink right)
         {
             return Equals(left, right);
         }
@@ -103,31 +103,31 @@ namespace Newtonsoft.Json.Schema
         /// <summary>
         /// Checks if two Links are not equal
         /// </summary>
-        /// <param name="left">The first Link to check</param>
-        /// <param name="right">The second Link to check</param>
+        /// <param name="left">The first JsonSchemaLink to check</param>
+        /// <param name="right">The second JsonSchemaLink to check</param>
         /// <returns>True if the Links are not equal, false otherwise</returns>
-        public static bool operator !=(Link left, Link right)
+        public static bool operator !=(JsonSchemaLink left, JsonSchemaLink right)
         {
             return !Equals(left, right);
         }
 
         /// <summary>
-        /// Indicates whether the current Link is equal to another Link.
+        /// Indicates whether the current JsonSchemaLink is equal to another JsonSchemaLink.
         /// </summary>
         /// <returns>
-        /// true if the current Link is equal to the <paramref name="other"/> parameter; otherwise, false.
+        /// true if the current JsonSchemaLink is equal to the <paramref name="other"/> parameter; otherwise, false.
         /// </returns>
-        /// <param name="other">An Link to compare with this Link.</param>
-        public bool Equals(Link other)
+        /// <param name="other">An JsonSchemaLink to compare with this JsonSchemaLink.</param>
+        public bool Equals(JsonSchemaLink other)
         {
             if (ReferenceEquals(null, other)) return false;
             if (ReferenceEquals(this, other)) return true;
             return string.Equals(Title, other.Title) && string.Equals(Rel, other.Rel) && string.Equals(Href, other.Href) && string.Equals(Method, other.Method) && string.Equals(MediaType, other.MediaType) && Equals(TargetSchema, other.TargetSchema) && Equals(Schema, other.Schema);
         }
 
-        private sealed class LinkEqualityComparer : IEqualityComparer<Link>
+        private sealed class LinkEqualityComparer : IEqualityComparer<JsonSchemaLink>
         {
-            public bool Equals(Link x, Link y)
+            public bool Equals(JsonSchemaLink x, JsonSchemaLink y)
             {
                 if (ReferenceEquals(x, y)) return true;
                 if (ReferenceEquals(x, null)) return false;
@@ -136,7 +136,7 @@ namespace Newtonsoft.Json.Schema
                 return string.Equals(x.Title, y.Title) && string.Equals(x.Rel, y.Rel) && string.Equals(x.Href, y.Href) && string.Equals(x.Method, y.Method) && string.Equals(x.MediaType, y.MediaType) && Equals(x.TargetSchema, y.TargetSchema) && Equals(x.Schema, y.Schema);
             }
 
-            public int GetHashCode(Link obj)
+            public int GetHashCode(JsonSchemaLink obj)
             {
                 unchecked
                 {
@@ -152,9 +152,9 @@ namespace Newtonsoft.Json.Schema
             }
         }
 
-        private static readonly IEqualityComparer<Link> LinkComparerInstance = new LinkEqualityComparer();
+        private static readonly IEqualityComparer<JsonSchemaLink> LinkComparerInstance = new LinkEqualityComparer();
 
-        public static IEqualityComparer<Link> LinkComparer
+        public static IEqualityComparer<JsonSchemaLink> LinkComparer
         {
             get { return LinkComparerInstance; }
         }

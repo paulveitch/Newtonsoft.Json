@@ -32,8 +32,6 @@ namespace Newtonsoft.Json.Tests.Schema
         [TestCaseSourceAttribute("GetSpecTestDetails")]
         public void SpecTest(JsonSchemaSpecTest jsonSchemaSpecTest)
         {
-            //if (jsonSchemaSpecTest.ToString() == "enum.json - simple enum validation - something else is invalid")
-            {
                 Console.WriteLine("Running JSON Schema test " + jsonSchemaSpecTest.TestNumber + ": " + jsonSchemaSpecTest);
 
                 JsonSchema s = JsonSchema.Read(jsonSchemaSpecTest.Schema.CreateReader());
@@ -43,7 +41,6 @@ namespace Newtonsoft.Json.Tests.Schema
                 errorMessages = errorMessages ?? new List<string>();
 
                 Assert.AreEqual(jsonSchemaSpecTest.IsValid, v, jsonSchemaSpecTest.TestCaseDescription + " - " + jsonSchemaSpecTest.TestDescription + " - errors: " + string.Join(", ", errorMessages));
-            }
         }
 
         public IList<JsonSchemaSpecTest> GetSpecTestDetails()
@@ -69,7 +66,7 @@ namespace Newtonsoft.Json.Tests.Schema
                     {
                         JsonSchemaSpecTest jsonSchemaSpecTest = new JsonSchemaSpecTest();
 
-                        jsonSchemaSpecTest.FileName = Path.GetFileName(testFile);
+                        jsonSchemaSpecTest.FileName = testFile.Replace(baseTestPath, String.Empty);
                         jsonSchemaSpecTest.TestCaseDescription = (string)testCase["description"];
                         jsonSchemaSpecTest.Schema = (JObject)testCase["schema"];
 
@@ -83,7 +80,7 @@ namespace Newtonsoft.Json.Tests.Schema
                 }
             }
 
-            specTests = specTests.Where(s => s.FileName != "dependencies.json"
+            specTests = specTests.Where(s => !s.FileName.Contains("dependencies.json")
                                              && s.TestCaseDescription != "multiple disallow subschema"
                                              && s.TestCaseDescription != "types from separate schemas are merged"
                                              && s.TestCaseDescription != "when types includes a schema it should fully validate the schema"

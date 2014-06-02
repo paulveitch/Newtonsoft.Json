@@ -244,7 +244,7 @@ namespace Newtonsoft.Json.Tests.Schema
         {
             string json = @"{
   ""description"":""Dependencies"",
-  ""requires"":""PurpleMonkeyDishwasher""
+  ""dependencies"":""PurpleMonkeyDishwasher""
 }";
 
             JsonSchemaBuilder builder = new JsonSchemaBuilder(new JsonSchemaResolver());

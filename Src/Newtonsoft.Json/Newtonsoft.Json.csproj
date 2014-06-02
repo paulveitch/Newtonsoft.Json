@@ -154,8 +154,8 @@
     <Compile Include="Schema\JsonSchemaResolver.cs" />
     <Compile Include="Schema\JsonSchemaType.cs" />
     <Compile Include="Schema\JsonSchemaWriter.cs" />
-    <Compile Include="Schema\Link.cs" />
-    <Compile Include="Schema\Media.cs" />
+    <Compile Include="Schema\JsonSchemaLink.cs" />
+    <Compile Include="Schema\JsonSchemaMedia.cs" />
     <Compile Include="Schema\UndefinedSchemaIdHandling.cs" />
     <Compile Include="Schema\ValidationEventArgs.cs" />
     <Compile Include="Schema\ValidationEventHandler.cs" />
